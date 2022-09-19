@@ -1,5 +1,37 @@
 # Java-Is-Verbose
 
+## Boilerplate
+
+Any Java programmer has probably seen this a hundred times:
+
+```
+public class Main {
+    public static main(string[] args) {
+        System.out.prinln("hello world");
+    }
+}
+```
+
+This is a ton of boilerplate just to run the simplest operation you can imagine, especially if we compare this to Python:
+
+```
+print "hello world"
+```
+
+All of that boilerplate makes the language seem very verbose immediately, and is even intimidating to new programmers. So why is it like this? We can go line-by-line:
+
+```public class Main { ```
+
+This line results from the first design principle of Java: that absolutely everything must happen inside of a class. You cannot just make functions outside of a class, even if that may be a better design for you. 
+
+```public static main(string[] args) {```
+
+This line results from the next design principle of Java: that all behavior (print statements, mutation, etc.) must go inside of a function. In this case, the main function, which is the first function that gets called. That function is static and takes an array as an argument (both concepts that might be confusing to new programmers). Finally:
+
+```System.out.println("hello world");```
+
+There is perhaps no other action that you do as frequently as log something. In the process of debugging, many coders add and remove print statements all over the place with great frequency. Therefore, it is imperative that print statements should be as easy to write as possible. System.out.println is not short. But I guess the reason it looks like that results, in part, because of the first rule that everything needs to be encapsulated in a class. 
+
 ## Import Statements
 
 This is an example of Java star imports:
@@ -148,6 +180,6 @@ Hideous!
 
 
 
-## Boilerplate
+## Bad Lambda Support
 
 
