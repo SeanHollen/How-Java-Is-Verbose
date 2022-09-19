@@ -4,8 +4,9 @@ People love to have to Java. One of the most common reasons people give for disl
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
-3. [Constructors](#constructors)
 3. [No Default Arguments](#no-default-arguments)
+3. [Constructors](#constructors)
+3. [Initializing a Hashmap](#initializing-a-hashmap)
 3. [Strict Typing](#strict-typing)
 3. [Curly Braces](#curly-braces)
 3. [Bad Lambda Support](#bad-lambda-support)
@@ -89,10 +90,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 There are 7 imports total, but only 3 lines. Imports form the same source are compressed onto the same line, essentially eliminating the repeated code from the Java example. 
 
 In Typescript, you can quickly skim over and say, "ok, this uses HTTP, and rxjs Observables, and rxjs operators." If the reader if familiar with those packages, they immediately get a vague overview of what the code will be doing. 
-
-## Constructors
-
-
 
 ## Getters and Setters
 
@@ -207,9 +204,57 @@ def my_function(arg1=12, arg2="automate", arg3=true):
     # do something
 ```
 
+## Constructors
+
+
+
+## Initializing a HashMap
+
+
+
 ## Strict Typing
 
+Let me start by saying that strict typing isn't bad. However, I can't omit it from this list, because it does indeed make Java more verbose. Look again at the [Constructors](#constructors) section: almost half of the "redundancy" comes from the fact that we have to list the type. For instance: 
 
+```
+Writer myWriter = new Writer();
+```
+
+The word "writer" is repeated 3 times. We just made the reader read the same thing thrice.
+
+Can this be better? I think there when you are creating and instantiating a constant on the same line, lack of typing is clearly superior. For instance take this Typescript code:
+
+```
+const myString = "hello world" // not typed
+const myString: string = "hello world" // typed
+```
+
+Which of those two is better? Your linter may even flag the second line. It will say that the type "string" is redundant, because it is. We already know it's a string because of the quotes. The same goes for other types.
+
+```
+const myWriter = new Writer()
+const myNumber = 12
+```
+
+Adding types would improve nothing. You know what type they are just by looking at their creation. 
+
+Notice, however, that in these examples, the variables are constants. When you are mutating variables, it may help to add typing, to prevent reassignments into improper types. Personally, when I write code in Typescript, I almost always initialize variables with the ``const`` keyword. I almost never use the ``let`` or ``var`` keywords, because I like to follow functional design patterns, where variables do not change. This is in fact one of the things that I like about functional design patterns: in many cases, it obviates the need for typing. 
+
+One case I am uncertain about is as follows:
+
+```
+const myArrayOfNumbers: number[] = new [1, 2, 4, "6", 8, 12, 145] // error!
+```
+
+I think it is useful to add the type here, so that it catches errors like the above. 
+
+In the case of array functions like the below, however, I think the typing shown is too verbose and should not be used:
+
+```
+const newArray: number[] = oldArray.reduce((previousArray: number[], currentArray: number[]) => {
+    // do something
+}, [])
+```
 
 ## Curly Braces
 
