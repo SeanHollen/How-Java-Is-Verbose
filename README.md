@@ -1,5 +1,7 @@
 # Java-Is-Verbose
 
+People love to have to Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this, through the various features that make the language so verbose.  
+
 ## Boilerplate
 
 Any Java programmer has probably seen this a hundred times:
@@ -170,7 +172,32 @@ Hideous!
 
 ## No Default Arguments
 
+Java has function overloading, which allows you to do the following:
 
+```
+public myFunction(int arg1, string arg2, boolean arg2) {
+    // do something
+}
+
+public myFunction(int arg1, string arg2) {
+    this.myFunction(arg1, arg2, true);
+}
+
+public myFunction(int arg1) {
+    this.myFunction(arg1, "automate", true);
+}
+
+public myFunction() {
+    this.myFunction(12, "automate", true);
+}
+```
+
+Although it's good you can do this, it is verbose. Here is how you would do the same thing in Python:
+
+```
+def my_function(arg1=12, arg2="automate", arg3=true):
+    // do something
+```
 
 ## Strict Typing
 
