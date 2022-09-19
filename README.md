@@ -2,6 +2,14 @@
 
 People love to have to Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this, through the various features that make the language so verbose.  
 
+1. [Boilerplate](#boilerplate)
+2. [Import Statements](#import-statements)
+3. [Constructors](#constructors)
+3. [No Default Arguments](#no-default-arguments)
+3. [Strict Typing](#strict-typing)
+3. [Curly Braces](#curly-braces)
+3. [Bad Lambda Support](#bad-lambda-support)
+
 ## Boilerplate
 
 Any Java programmer has probably seen this a hundred times:
@@ -196,7 +204,7 @@ Although it's good you can do this, it is verbose. Here is how you would do the 
 
 ```
 def my_function(arg1=12, arg2="automate", arg3=true):
-    // do something
+    # do something
 ```
 
 ## Strict Typing
