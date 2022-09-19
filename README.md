@@ -15,7 +15,7 @@ People love to have to Java. One of the most common reasons people give for disl
 
 Any Java programmer has probably seen this a hundred times:
 
-```
+```Java
 public class Main {
     public static main(string[] args) {
         System.out.prinln("hello world");
@@ -25,7 +25,7 @@ public class Main {
 
 This is a ton of boilerplate just to run the simplest operation you can imagine, especially if we compare this to Python:
 
-```
+```Python
 print "hello world"
 ```
 
@@ -47,7 +47,7 @@ There is perhaps no other action that you do as frequently as log something. In 
 
 This is an example of Java star imports:
 
-```
+```Java
 import java.awt.*;
 import java.sql.*;
 import java.util.*;
@@ -57,7 +57,7 @@ It looks fine. Unfortunately, star imports are considered by many to be an antip
 
 Ok, so you can't use star imports. But that means that the top of your Java files will all be littered with something like this:
 
-```
+```Java
 import com.google.common.base.Preconditions.checkArgument;
 import com.google.common.base.Preconditions.checkNotNull;
 import com.google.common.base.Preconditions.checkState;
@@ -81,7 +81,7 @@ Code should be written in such a way that it provides maximum information to the
 
 So is there a better way? There is. This is how you do imports in Typescript:
 
-```
+```Javascript
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, map, tap } from 'rxjs/operators';
@@ -95,7 +95,7 @@ In Typescript, you can quickly skim over and say, "ok, this uses HTTP, and rxjs 
 
 A great deal of the verbosity of Java can be blamed on getters and setters.
 
-```
+```Java
 class Demo {
 
     private int length; 
@@ -144,7 +144,7 @@ Spring Boot, and probably other Java frameworks, actually require the use of get
 
 Is there a better way? I think htere is. I actually prefer how C# 3.0+ handles it.
 
-```
+```C#
 public class Foo
 {
     // getter and setter are attached directly to variable, on one line.
@@ -154,7 +154,7 @@ public class Foo
 
 Or in the case where you need the getter or setter to do something:
 
-```
+```C#
 private string mFoo; // backing field
 public string foo
 {
@@ -169,7 +169,7 @@ public string foo
 
 I still don't like the fact that you need to use a backing field in order to make the getter or setter do something. However, if we need to introduce a backing variable, at least that change is internal to the class, and does not break backwards-compatibility. Therefore, this way is still superior to the Java style of making the user call getX and setX from the start.
 
-```
+```Java
 myObject.setY(myObject.getX());
 ```
 
@@ -179,7 +179,7 @@ Hideous!
 
 Java has function overloading, which allows you to do the following:
 
-```
+```Java
 public myFunction(int arg1, string arg2, boolean arg2) {
     // do something
 }
@@ -199,7 +199,7 @@ public myFunction() {
 
 Although it's good you can do this, it is verbose. Here is how you would do the same thing in Python:
 
-```
+```Python
 def my_function(arg1=12, arg2="automate", arg3=true):
     # do something
 ```
@@ -216,7 +216,7 @@ def my_function(arg1=12, arg2="automate", arg3=true):
 
 Let me start by saying that strict typing isn't bad. However, I can't omit it from this list, because it does indeed make Java more verbose. Look again at the [Constructors](#constructors) section: almost half of the "redundancy" comes from the fact that we have to list the type. For instance: 
 
-```
+```Java
 Writer myWriter = new Writer();
 ```
 
@@ -231,7 +231,7 @@ const myString: string = "hello world" // typed
 
 Which of those two is better? Your linter may even flag the second line. It will say that the type "string" is redundant, because it is. We already know it's a string because of the quotes. The same goes for other types.
 
-```
+```Javascript
 const myWriter = new Writer()
 const myNumber = 12
 ```
@@ -242,7 +242,7 @@ Notice, however, that in these examples, the variables are constants. When you a
 
 One case I am uncertain about is as follows:
 
-```
+```Javascript
 const myArrayOfNumbers: number[] = new [1, 2, 4, "6", 8, 12, 145] // error!
 ```
 
@@ -250,7 +250,7 @@ I think it is useful to add the type here, so that it catches errors like the ab
 
 In the case of array functions like the below, however, I think the typing shown is too verbose and should not be used:
 
-```
+```Javascript
 const newArray: number[] = oldArray.reduce((previousArray: number[], currentArray: number[]) => {
     // do something
 }, [])
@@ -258,7 +258,47 @@ const newArray: number[] = oldArray.reduce((previousArray: number[], currentArra
 
 ## Curly Braces
 
+You may actually prefer curly braces to indenting being enough. I'm not here to argue with you. However, the requirement of curly braces does make Java code longer than Python code. The reason I think this matters is that I like for code to be compact. I like to be able to see my whole file of code without scrolling or using a verticle monitor. Closing curly braces take up an extra line. 
 
+Here is some Java code: 
+
+```Java
+
+int solution(int[][] grid) {
+    int sum = 0;
+    for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[0].length; j++) {
+            if (!visited.contains(i * grid.length + j)) {
+                int sum++;
+                this.helper(grid, i, j);
+            }
+        }
+    }
+    return sum; 
+}
+
+```
+
+Actually, you could have omitted the curly braces for the if statements, because the contents fit on one line. However, I consider this bad form, because it has a high risk of introducing bugs (if you need multiple lines in the if statement block, a lack of curly braces will introduce an error), and it creates inconsistent style.
+
+The same code in Python:
+
+```Python
+
+def solution(grid):
+    sum = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if (i, j) not in visited:
+                sum += 1
+                self.helper(grid, i, j)
+    return sum
+
+```
+
+People complain about Python whitespace, but I have no idea what those people are talking about. What, are they coding in Notepad? I don't know about you, but I use a code editor that takes care of that for me. 
+
+In addition to the lack of curly braces, I also want point out the quality-of-life improvements in Python. The loops are simpler to write and read, and the syntax for the if statement is simpler. 
 
 ## Bad Lambda Support
 
