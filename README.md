@@ -224,7 +224,7 @@ The word "writer" is repeated 3 times. We just made the reader read the same thi
 
 Can this be better? I think there when you are creating and instantiating a constant on the same line, lack of typing is clearly superior. For instance take this Typescript code:
 
-```
+```Javascript
 const myString = "hello world" // not typed
 const myString: string = "hello world" // typed
 ```
@@ -263,7 +263,6 @@ You may actually prefer curly braces to indenting being enough. I'm not here to 
 Here is some Java code: 
 
 ```Java
-
 int solution(int[][] grid) {
     int sum = 0;
     for (int i = 0; i < grid.length; i++) {
@@ -276,7 +275,6 @@ int solution(int[][] grid) {
     }
     return sum; 
 }
-
 ```
 
 Actually, you could have omitted the curly braces for the if statements, because the contents fit on one line. However, I consider this bad form, because it has a high risk of introducing bugs (if you need multiple lines in the if statement block, a lack of curly braces will introduce an error), and it creates inconsistent style.
@@ -284,7 +282,6 @@ Actually, you could have omitted the curly braces for the if statements, because
 The same code in Python:
 
 ```Python
-
 def solution(grid):
     sum = 0
     for i in range(len(grid)):
@@ -293,7 +290,6 @@ def solution(grid):
                 sum += 1
                 self.helper(grid, i, j)
     return sum
-
 ```
 
 People complain about Python whitespace, but I have no idea what those people are talking about. What, are they coding in Notepad? I don't know about you, but I use a code editor that takes care of that for me. 
@@ -302,4 +298,23 @@ In addition to the lack of curly braces, I also want point out the quality-of-li
 
 ## Bad Lambda Support
 
+This is how you sort a list of objects by user-defined criteria in Java:
 
+```Java
+Collections.sort(users, new Comparator<User>() {
+    @Override
+    public int compare(User u1, User u2) {
+        return u2.getCreatedOn().compareTo(u1.getCreatedOn());
+    }
+});
+```
+
+The alternative to this is to make user implement ``Comparable<User>``, and then define the compareTo method. This approach isn't scalable, though, in that it anly allows you one way to sort the object. 
+
+This is how yuou sort a list of object by user-defined criteria in Javascript:
+
+```Javascript
+users.sort((u1, u2) => u2.createdOn() - u1.createdOn());
+```
+
+I don't know about you, but that is much better. Javascript can do this because it has built-in support for lambdas, which allows for built-in support for array functions (ie, sort, forEach, map, filter, reduce, etc). When we want to do custom sorts, the functional approach is superior, but it is very clunky in Java, because Java's strictly object-oriented mentality is restrictive. 
