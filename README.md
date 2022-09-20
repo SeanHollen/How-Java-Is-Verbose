@@ -1,4 +1,4 @@
-People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. 
+People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. For a basic of comparison, I'll use Javascript, Typescript, Python, and C#.
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
@@ -397,7 +397,7 @@ const newArray: number[] = oldArray.reduce((previousArray: number[], currentArra
 
 # Curly Braces
 
-You may prefer curly braces to just indenting. I'm not here to argue with you. However, the requirement of curly braces does make Java code longer than Python code. The reason I think this matters is that I like for code to be compact. I like to be able to see my whole file of code without scrolling or using a vertical monitor. Closing curly braces take up an extra line. 
+You may prefer curly braces to just indenting. I'm not here to argue with you. Out of all of the items on this list, this item is the most stylistic and subjective. However, the requirement of curly braces does make Java code longer than Python code. The reason I think this matters is that I like for code to be compact. I like to be able to see my whole file of code without scrolling or using a vertical monitor. Closing curly braces take up an extra line. 
 
 Here is some Java code: 
 
