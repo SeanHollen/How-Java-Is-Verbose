@@ -1,4 +1,4 @@
-People love to have to Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this, through the various features that make the language so verbose.  
+People love to have to Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. 
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
@@ -226,12 +226,15 @@ class Person {
     // getters and setters
 }
 
-Person ben = new Person("Benjamin", "Keller", new Birthday(1, 2, 1992), "USA", 70, new ArrayList<>(Arrays.asList("Sarah", "David", "Kelly")));
+Person ben = new Person("Benjamin", "Keller", new Birthday(1, 2, 1992), "USA", 70, 
+    new ArrayList<>(Arrays.asList("Sarah", "David", "Kelly")));
 ```
 
 I have not explicitly defined the class Birthday, but I think it's clear how it works. 
 
 Here's a question: how many times does the word "birthday" appear in the above code? I count 6 times, including the types. This violates the DRY principle.
+
+The above code is second nature to most programmers. However, it is extremely confusing to beginners. I know that because I was once a beginner. I hate to admit it, but Java is the first object-oriented language I know. The first thing I learned about the language, before even how to add and subtract, was class initialization with constructors. It was very confusing to me what everything did and why I had to repeat the same thing 6 times. 
 
 In Python, it's a little better. We only repeat "birthday" 3 times. However, Python also isn't asking for the [type](#strict-typing), which is a loss.
 
@@ -274,6 +277,10 @@ const ben = {
 }
 ```
 
+Unlike passing objects in through the constructor, each item is labeled, eg, "Benjamin" is labeled "firstName" so we know what it is. Some IDEs create artificial labels which are not actually part of the code. When your IDE has to insert phantom text to make your code readable, that's a code smell for poor language design. 
+
+The ability to create JSON objects puts JS/TS, in my opinion, far above Java.
+
 # Initializing a HashMap
 
 
@@ -288,14 +295,14 @@ Writer myWriter = new Writer();
 
 The word "writer" is repeated 3 times. We just made the reader read the same thing thrice.
 
-Can this be better? I think there when you are creating and instantiating a constant on the same line, lack of typing is clearly superior. For instance take this Typescript code:
+Can this be better? I think there when you are creating and instantiating a constant on the same line, lack of typing is clearly superior. In Typescript, types are optional. I think this is great, because although you want to use types in most cases, sometimes they are clutter. For example: 
 
 ```Typescript
 const myString = "hello world" // not typed
 const myString: string = "hello world" // typed
 ```
 
-Which of those two is better? Your linter may even flag the second line. It will say that the type "string" is redundant, because it is. We already know it's a string because of the quotes. The same goes for other types.
+Which of those two is better? Your linter may even flag the second line. It will say that the type "string" is redundant, because it is. We already *know* it's a string because quotes are there, and everyone knows quotes indicate string. The same goes for other types.
 
 ```Javascript
 const myWriter = new Writer()
