@@ -283,7 +283,72 @@ The ability to create JSON objects puts JS/TS, in my opinion, far above Java.
 
 # Initializing a HashMap
 
+When programming, I often want to create a Hashmap/dictionary/etc, and intiantiate it with multiple key-value pairs at the same time. The trouble is Java can't decide on the standard way to do this. [This](https://www.baeldung.com/java-initialize-hashmap) totorial page lists various options. I hate all of them. 
 
+**Option 1**
+
+```Java
+Map<String, Integer> myKeyValueParisMap = new HashMap<>();
+myKeyValueParisMap.put("key1", 1);
+myKeyValueParisMap.put("key2", 2);
+```
+
+**Option 2** comes with a stern warning to never do it. It "it creates an anonymous extra class at every usage, holds hidden references to the enclosing object, and might cause memory leak issues." It's a shame because this is syntactially the best. 
+
+```Java
+Map<String, Integer> myKeyValueParisMap = new HashMap<String, String>() {{
+    put("key1", 1);
+    put("key2", 2);
+}};
+```
+
+**Option 3** 
+
+```Java
+Map<String, Integer> myKeyValueParisMap = Stream.of(new Object[][] { 
+     { "key1", 1 }, 
+     { "key2", 2 }, 
+}).collect(Collectors.toMap(data -> (String) data[0], data -> (Integer) data[1]));
+```
+
+**Option 4** only works for up to 10 elements.
+
+```Java
+Map<String, Integer> myKeyValueParisMap = Map.of(
+    "key1", 1,
+    "key2", 2
+);
+```
+
+**Option 5**
+
+```Java
+import static java.util.Map.entry;
+Map<String, Integer> myKeyValueParisMap = Map.ofEntries(
+    entry("key1", 1),
+    entry("key2", 1)
+);
+```
+
+**Option 6**
+
+```Java
+Map<String, Integer> myKeyValueParisMap = Stream.of(
+    new AbstractMap.SimpleEntry<>("key1", 1), 
+    new AbstractMap.SimpleEntry<>("key2", 2))
+    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+```
+
+I like option 5 best overall. However, what I really like best is to use another language, like JS/TS:
+
+```Javascript 
+const myKeyValueParisMap = {
+    "key1": 1,
+    "key2": 2
+};
+```
+
+The difference is clear. Java is worse for instantiating lists/arrays, too. 
 
 # Strict Typing
 
@@ -331,7 +396,7 @@ const newArray: number[] = oldArray.reduce((previousArray: number[], currentArra
 
 # Curly Braces
 
-You may actually prefer curly braces to indenting being enough. I'm not here to argue with you. However, the requirement of curly braces does make Java code longer than Python code. The reason I think this matters is that I like for code to be compact. I like to be able to see my whole file of code without scrolling or using a vertical monitor. Closing curly braces take up an extra line. 
+You may prefer curly braces to just indenting. I'm not here to argue with you. However, the requirement of curly braces does make Java code longer than Python code. The reason I think this matters is that I like for code to be compact. I like to be able to see my whole file of code without scrolling or using a vertical monitor. Closing curly braces take up an extra line. 
 
 Here is some Java code: 
 
