@@ -8,6 +8,7 @@ People love to hate Java. One of the most common reasons people give for disliki
 3. [Strict Typing](#strict-typing)
 3. [Curly Braces](#curly-braces)
 3. [Bad Lambda Support](#bad-lambda-support)
+3. [No Operator Overloading or Indexers](#no-operator-overloading-or-indexers)
 
 # Boilerplate
 
@@ -456,3 +457,90 @@ users.sort((u1, u2) => u2.createdOn() - u1.createdOn());
 ```
 
 I don't know about you, but that is much better. Javascript can do this because it has built-in support for lambdas, which allows for built-in support for array functions (ie, sort, forEach, map, filter, reduce, etc). When we want to do custom sorts, the functional approach is superior, but it is very clunky in Java, because Java's strictly object-oriented mentality is restrictive. 
+
+# No Operator Overloading or Indexers
+
+In Java, syntax exists that the users cannot implement their own uses of. In the following cases, it feels like Java doesn't trust its own users to create new implementations, lest they confuse themselves.
+
+**Operator Overloading**
+
+In C#, you can do the following
+
+```C#
+Vector3 newVec = new Vector3(10f, 105, 5f) + new Vector3(10f, 5f, 5f);
+// newVec == new Vector3(20f, 15f, 10f)
+Vector3 newVec = new Vector3(10f, 105, 5f) - new Vector3(10f, 5f, 0f);
+// newVec == new Vector3(0f, 5f, 5f)
+Vector3 newVec = new Vector3(20f, 10f, 5f) * new Vector3(10f, 5f, 5f);
+// newVec == new Vector3(200f, 50f, 25ff)
+Vector3 newVec = new Vector3(10f, 15f, 5f) / new Vector3(10f, 5f, 1f);
+// newVec == new Vector3(1f, 3f, 5f)
+```
+
+You can do this in C# because it allows you to overload the operators ``+``, ``*``, etc. In Java however, you cannot do this. At best, you can do:
+
+```Java
+Vector3 newVec = new Vector3(10f, 105, 5f).add(new Vector3(10f, 5f, 5f));
+```
+
+I personally find that MUCH less clear. The syntax of operators is clarifying, and more readable via the use of whitespace.
+
+**Indexers**
+
+To get and update the value of an ArrayList in Java, one must do:
+
+```Java
+// Get the value of an ArrayList
+int val = myList.get(index);
+// Update the value of an ArrayList
+myList.set(index, element);
+```
+
+But in most languages, you can do something like the following:
+
+```Python
+# Get value of variable-length-list
+val = my_list[index]
+# Update the value of variable-length-list
+my_list[index] = element
+```
+
+I use Python in the that example, but C# allows you to access the value of ArrayLists with almost the same syntax. This is how you set up an "indexer" in C#, allowing you to access items through [square brackets]:
+
+```C#
+// Defining Linked List
+class LinkedList {  
+   Node head;  
+   // Setting up indexers
+   public int this[int i]
+   {
+      // get indexer allows square brackets to read data
+      get => this.getAt(i);
+      // set indexer allows square brackets to change data
+      set => this.setAt(i, value);
+   }
+}
+```
+
+Java syntax may have seemed fine so far, but it gets very unwieldy. Java HashMaps, an extremely commonly used data structure, do not use indexers. 
+
+```Java
+// Add to the value in a HashMap in Java
+myHashMapWithLongName.put(myKey, myHashMapWithLongName.get(myKey) + amountToAdd);
+// Subtract from the value in a HashMap in Java
+myHashMapWithLongName.put(myKey, myHashMapWithLongName.get(myKey) - amountToAdd);
+// Bonus: add to value in 2d ArrayList in Java
+my2dArrayList.get(i).put(j, my2dArrayList.get(i).get(j) + toAdd);
+```
+I believe this violates the DRY principle because you repeat almost everything twice. The first two lines could be very easily mixed up if not for the adjascent placement. Compare to other languages:
+
+```Python
+# Add to the value in a hashmap/dictionary/object in other languages
+myHashMapWithLongName[myKey] += amountToAdd
+# Subtract from the value in a hashmap/dictionary/object in other languages
+myHashMapWithLongName[myKey] -= amountToAdd
+# Bonus: add to value in 2d variable-length-array in other languages
+my2dArray[i][j] += toAdd
+```
+
+In the Java example I get confused by what's going on. I especially found it weird as a beginner. Liberal use of the [square brackets] give other languages a ton of simplicity. 
