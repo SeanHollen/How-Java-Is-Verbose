@@ -386,7 +386,7 @@ const myArrayOfNumbers: number[] = new [1, 2, 4, "6", 8, 12, 145] // error!
 
 I think it is useful to add the type here, so that it catches errors like the above. 
 
-In the case of array functions like the below, however, I think the typing shown is too verbose and should not be used:
+However, there is another case where I think typing is not necessary. If the variable has a very small scope, putting the creation close enough to object use, we can forgoe the safeguard of typing. For example, in the the case of array functions like the below, the typing is too verbose and shouldn't be used.
 
 ```Typescript
 const newArray: number[] = oldArray.reduce((previousArray: number[], currentArray: number[]) => {
