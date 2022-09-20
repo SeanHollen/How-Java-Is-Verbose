@@ -1,4 +1,4 @@
-People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. For a basic of comparison, I'll use Javascript, Typescript, Python, and C#.
+People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. For a basis of comparison, I'll use Javascript, Typescript, Python, and C#.
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
