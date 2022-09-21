@@ -507,7 +507,7 @@ val = my_list[index]
 my_list[index] = element
 ```
 
-Of course, Java uses indexers for arrays. Java programmers know how to use indexers, because they exist in the language, but exclusively for that one data structure. Other data structures (ArrayLists, HashMaps, LinkedLists, etc.) cannot use them. 
+Of course, Java uses indexers for arrays. Java programmers know how to use indexers, because they exist in the language, but exclusively for that one data structure. Other data structures (ArrayLists, HashMaps, LinkedLists, etc.) cannot use them. I consider this an inconsistency. 
 
 I use Python in the that example, but C# allows you to access the value of ArrayLists with almost the same syntax. This is how you set up an "indexer" in C#, allowing you to access items through [square brackets]:
 
