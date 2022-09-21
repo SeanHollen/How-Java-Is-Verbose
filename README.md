@@ -235,7 +235,7 @@ I have not explicitly defined the class Birthday, but I think it's clear how it 
 
 Here's a question: how many times does the word "birthday" appear in the above code? I count 6 times, including the types. This violates the DRY principle.
 
-The above code is second nature to most programmers. However, it is extremely confusing to beginners. I know that because I was once a beginner. I hate to admit it, but Java is the first object-oriented language I know. The first thing I learned about the language, before even how to add and subtract, was class initialization with constructors. It was very confusing to me what everything did and why I had to repeat the same thing 6 times. 
+The above code is second nature to most programmers. However, it is extremely confusing to beginners. I know that because I was once a beginner. I hate to admit it, but Java is the first object-oriented language I learned. The first thing I learned about the language, before even how to add and subtract, was class initialization with constructors. It was very confusing to me what everything did and why I had to repeat the same thing 6 times. 
 
 In Python, it's a little better. We only repeat "birthday" 3 times. However, Python also isn't asking for the [type](#strict-typing), which is a loss.
 
@@ -485,6 +485,8 @@ Vector3 newVec = new Vector3(10f, 105, 5f).add(new Vector3(10f, 5f, 5f));
 
 I personally find that MUCH less clear. The syntax of operators is clarifying, and more readable via the use of whitespace.
 
+For Java to disallow operator overloading is incompatible with the decision for Java to allow function overloading. Operators are functions. Java's not going all the way with its design philosophy. 
+
 **Indexers**
 
 To get and update the value of an ArrayList in Java, one must do:
@@ -504,6 +506,8 @@ val = my_list[index]
 # Update the value of variable-length-list
 my_list[index] = element
 ```
+
+Of course, Java uses indexers for arrays. Java programmers know how to use indexers, because they exist in the language, but exclusively for that one data structure. Other data structures (ArrayLists, HashMaps, LinkedLists, etc.) cannot use them. 
 
 I use Python in the that example, but C# allows you to access the value of ArrayLists with almost the same syntax. This is how you set up an "indexer" in C#, allowing you to access items through [square brackets]:
 
