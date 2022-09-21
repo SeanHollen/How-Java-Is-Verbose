@@ -199,7 +199,7 @@ public myFunction() {
 Although it's good you can do this, it is verbose. Here is how you would do the same thing in Python:
 
 ```Python
-def my_function(arg1=12, arg2="automate", arg3=true):
+def my_function(arg1=12, arg2="automate", arg3=True):
     # do something
 ```
 
