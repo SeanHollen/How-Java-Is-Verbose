@@ -254,7 +254,7 @@ ben = new Person("Benjamin", "Keller", new Birthday(1, 2, 1992), "USA", 70, ["Sa
 
 ```
 
-The fundamental issue here, I think, is that we are trying to use a class as a structured store of data, much like a JSON object, and therefore we are trying to initialize it with a lot of data. What I would do in Typescript is not use a class, but rather, create an interface.
+The fundamental issue here, I think, is that we are trying to use a class as a structured store of data, much like a JSON object, and therefore we are trying to initialize it with a lot of data. What I would do in Typescript is not use a class at all, but rather, create an interface.
 
 ```Typescript
 interface Person {
@@ -265,7 +265,8 @@ interface Person {
     siblings: string[]
 }
 
-const ben = {
+// use
+const ben: Person = {
     firstName: "Benjamin", 
     lastname: "Keller", 
     birthday: {
@@ -279,7 +280,9 @@ const ben = {
 }
 ```
 
-Unlike passing objects in through the constructor, each item is labeled, eg, "Benjamin" is labeled "firstName" so we know what it is. Some IDEs create artificial labels which are not actually part of the code. When your IDE has to insert phantom text to make your code readable, that's a code smell for poor language design. 
+Unlike passing objects in through the constructor, each item is labeled, eg, "Benjamin" is labeled "firstName" so we know what it is. 
+
+When passing arguments into a function/constructor, some IDEs (like IntelliJ) create [parameter hints](https://www.jetbrains.com/help/webstorm/viewing-method-parameter-information.html): artificial labels which are not actually part of the code. When your IDE has to insert phantom text to make your code readable, that's a code smell for poor language design. 
 
 The ability to create JSON objects puts JS/TS, in my opinion, far above Java.
 
