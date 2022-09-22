@@ -288,7 +288,7 @@ The ability to create JSON objects puts JS/TS, in my opinion, far above Java.
 
 # Initializing a HashMap
 
-When programming, I often want to create a Hashmap/dictionary/etc, and intiantiate it with multiple key-value pairs at the same time. The trouble is Java can't decide on the standard way to do this. [This](https://www.baeldung.com/java-initialize-hashmap) totorial page lists various options. I hate all of them. 
+When programming, I often want to create a Hashmap/dictionary/etc, and instantiate it with multiple key-value pairs at the same time. The trouble is Java can't decide on the standard way to do this. [This](https://www.baeldung.com/java-initialize-hashmap) tutorial page lists various options. I hate all of them. 
 
 **Option 1**
 
@@ -298,7 +298,7 @@ myKeyValueParisMap.put("key1", 1);
 myKeyValueParisMap.put("key2", 2);
 ```
 
-**Option 2** comes with a stern warning to never do it. It "it creates an anonymous extra class at every usage, holds hidden references to the enclosing object, and might cause memory leak issues." It's a shame because this is syntactially the best. 
+**Option 2** comes with a stern warning to never do it. It "it creates an anonymous extra class at every usage, holds hidden references to the enclosing object, and might cause memory leak issues." It's a shame because this is syntactically the best. 
 
 ```Java
 Map<String, Integer> myKeyValueParisMap = new HashMap<String, String>() {{
@@ -540,7 +540,7 @@ myHashMapWithLongName.put(myKey, myHashMapWithLongName.get(myKey) - amountToAdd)
 // Bonus: add to value in 2d ArrayList in Java
 my2dArrayList.get(i).put(j, my2dArrayList.get(i).get(j) + toAdd);
 ```
-I believe this violates the DRY principle because you repeat almost everything twice. The first two lines could be very easily mixed up if not for the adjascent placement. Compare to other languages:
+I believe this violates the DRY principle because you repeat almost everything twice. The first two lines could be very easily mixed up if not for the adjacent placement. Compare to other languages:
 
 ```Python
 # Add to the value in a hashmap/dictionary/object in other languages
