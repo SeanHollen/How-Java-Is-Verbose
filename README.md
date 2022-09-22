@@ -2,6 +2,7 @@ People love to hate Java. One of the most common reasons people give for disliki
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
+2. [Getters and Setters](#getters-and-setters)
 3. [No Default Arguments](#no-default-arguments)
 3. [Constructors](#constructors)
 3. [Initializing a Hashmap](#initializing-a-hashmap)
