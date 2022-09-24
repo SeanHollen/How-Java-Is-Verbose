@@ -556,7 +556,6 @@ In the Java example I get confused by what's going on. I especially found it wei
 One time, I implemented the Ford-Fulkerson algorithm, and ended up writing the following code. God help you if you want to do this in Java:
 
 ```Java
-val = min(path.weights)
 graphMatrix[x][y] += val
 graphMatrix[y][x] -= val
 ```
