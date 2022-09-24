@@ -410,7 +410,7 @@ int solution(int[][] grid) {
     int sum = 0;
     for (int i = 0; i < grid.length; i++) {
         for (int j = 0; j < grid[0].length; j++) {
-            if (!visited.contains(i * grid.length + j)) {
+            if (grid[i][j] == 1 && !visited.contains(i * grid.length + j)) {
                 int sum++;
                 this.helper(grid, i, j);
             }
@@ -429,7 +429,7 @@ def solution(grid):
     sum = 0
     for i, row in enumerate(grid):
         for j, val in enumerate(row):
-            if (i, j) not in visited:
+            if val == 1 and (i, j) not in visited:
                 sum += 1
                 self.helper(grid, i, j)
     return sum
