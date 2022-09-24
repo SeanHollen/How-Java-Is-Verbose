@@ -427,8 +427,8 @@ The same code in Python:
 ```Python
 def solution(grid):
     sum = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
+    for i, row in enumerate(grid):
+        for j, val in enumerate(row):
             if (i, j) not in visited:
                 sum += 1
                 self.helper(grid, i, j)
