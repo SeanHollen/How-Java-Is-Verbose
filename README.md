@@ -471,13 +471,13 @@ In Java, syntax exists that the users cannot implement their own uses of. In the
 In C#, you can do the following
 
 ```C#
-Vector3 newVec = new Vector3(10f, 105, 5f) + new Vector3(10f, 5f, 5f);
+Vector3 newVec1 = new Vector3(10f, 105, 5f) + new Vector3(10f, 5f, 5f);
 // newVec == new Vector3(20f, 15f, 10f)
-Vector3 newVec = new Vector3(10f, 105, 5f) - new Vector3(10f, 5f, 0f);
+Vector3 newVec2 = new Vector3(10f, 105, 5f) - new Vector3(10f, 5f, 0f);
 // newVec == new Vector3(0f, 5f, 5f)
-Vector3 newVec = new Vector3(20f, 10f, 5f) * new Vector3(10f, 5f, 5f);
+Vector3 newVec3 = new Vector3(20f, 10f, 5f) * new Vector3(10f, 5f, 5f);
 // newVec == new Vector3(200f, 50f, 25ff)
-Vector3 newVec = new Vector3(10f, 15f, 5f) / new Vector3(10f, 5f, 1f);
+Vector3 newVec4 = new Vector3(10f, 15f, 5f) / new Vector3(10f, 5f, 1f);
 // newVec == new Vector3(1f, 3f, 5f)
 ```
 
@@ -552,3 +552,11 @@ my2dArray[i][j] += toAdd
 ```
 
 In the Java example I get confused by what's going on. I especially found it weird as a beginner. Liberal use of the [square brackets] give other languages a ton of simplicity. 
+
+One time, I implemented the Ford-Fulkerson algorithm, and ended up writing the following code. God help you if you want to do this in Java:
+
+```Java
+val = min(path.weights)
+graphMatrix[x][y] += val
+graphMatrix[y][x] -= val
+```
