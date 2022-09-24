@@ -17,7 +17,7 @@ Any Java programmer has probably seen this a hundred times:
 
 ```Java
 public class Main {
-    public static main(string[] args) {
+    public static void main(string[] args) {
         System.out.prinln("hello world");
     }
 }
@@ -35,7 +35,7 @@ All of that boilerplate makes the language seem very verbose immediately, and is
 
 This line results from the first design principle of Java: that absolutely everything must happen inside of a class. You cannot just make functions outside of a class, even if that may be a better design for you. 
 
-```public static main(string[] args) {```
+```public static void main(string[] args) {```
 
 This line results from the next design principle of Java: that all behavior (print statements, mutation, etc.) must go inside of a function. In this case, the main function, which is the first function that gets called. That function is static and takes an array as an argument (both concepts that might be confusing to new programmers). Finally:
 
