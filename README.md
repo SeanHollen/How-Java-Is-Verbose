@@ -1,4 +1,14 @@
-People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. For a basis of comparison, I'll use Javascript, Typescript, Python, and C#.
+People love to hate Java. One of the most common reasons people give for disliking it is that it is "verbose." I will explain why people think this. I will go over various features that make the language needlessly verbose. I will only be evaluating the language syntax, not the libraries, support, or runtime conditions. For a basis of comparison, I'll use Javascript, Typescript, Python, and C#.
+
+**Summary**
+
+* One major complaint with Java is that it lacks a flexible data structure, such as JSON objects like in JS/TS, structs like in C/C++/C#, and lists+dictionaries like in Python. You can create a class as the data structure you want, but classes have excess boilerplate: constructors typically getters+setters. This makes it syntactically awkward for cases when we just need a store of data. Alternatively, you can attempt to use HashMaps+ArrayLists for your store of data, but these are awkward to initialize and don't have good syntax for updating.
+
+* Java is heavily dedicated to the object-oriented approach. There is boilerplate associated with that approach. Additionally, this approach only gets you so far, because there are cases when you really want to do functional work. But when you try, it's difficult. Furthermore, lack of functional support has implications for typing (see that section).
+
+* In general, Java makes you "spell things out" more. Examples are with import statements and the lack of default arguments. 
+
+**Contents**
 
 1. [Boilerplate](#boilerplate)
 2. [Import Statements](#import-statements)
