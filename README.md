@@ -526,17 +526,16 @@ Of course, Java uses indexers for arrays. Java programmers know how to use index
 I use Python in the that example, but C# allows you to access the value of ArrayLists with almost the same syntax. This is how you set up an "indexer" in C#, allowing you to access items through [square brackets]:
 
 ```C#
-// Defining Linked List
-class LinkedList {  
-   Node head;  
-   // Setting up indexers
-   public int this[int i]
-   {
-      // get indexer allows square brackets to read data
-      get => this.getAt(i);
-      // set indexer allows square brackets to change data
-      set => this.setAt(i, value);
-   }
+class LinkedList {
+
+    Node head;
+    
+    // create indexer
+    public int this[int i]
+    {
+        get => this.getAt(i);
+        set => this.setAt(i, value);
+    }
 }
 ```
 
