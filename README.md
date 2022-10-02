@@ -2,7 +2,7 @@ People love to hate Java. One of the most common reasons people give for disliki
 
 **Summary**
 
-* One major complaint with Java is that it lacks a flexible data structure, such as JSON objects like in JS/TS, structs like in C/C++/C#, and lists+dictionaries like in Python. You can create a class as the data structure you want, but classes have excess boilerplate: constructors typically getters+setters. This makes it syntactically awkward for cases when we just need a store of data. Alternatively, you can attempt to use HashMaps+ArrayLists for your store of data, but these are awkward to initialize and don't have good syntax for updating.
+* One major complaint with Java is that it lacks a flexible data structure, such as JSON objects like in JS/TS, structs like in C/C++/C#, and lists+dictionaries like in Python. You can create a class as the data structure you want, but classes have excess boilerplate: constructors and typically getters+setters. This makes it syntactically awkward for cases when we just need a store of data. Alternatively, you can attempt to use HashMaps+ArrayLists for your store of data, but these are awkward to initialize and don't have good syntax for updating.
 
 * Java is heavily dedicated to the object-oriented approach. There is boilerplate associated with that approach. Additionally, this approach only gets you so far, because there are cases when you really want to do functional work. But when you try, it's difficult. Furthermore, lack of functional support has implications for typing (see that section).
 
